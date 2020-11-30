@@ -1,9 +1,9 @@
-import "./App.css";
+import styles from "./App.module.scss";
 
 const App = () => {
   return (
     <div>
-      <header>Наше ТВ</header>
+      <header className={styles.header}>Наше ТВ</header>
     </div>
   );
 };
