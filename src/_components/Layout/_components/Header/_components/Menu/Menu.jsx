@@ -2,13 +2,19 @@ import { useState } from 'react';
 
 import styles from './Menu.module.scss';
 
-import { Link } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 
 import { ReactComponent as CloseIcon } from '../../../../../../_assets/icons/closeIcon.svg';
 import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menuIcon.svg';
 
 const Menu = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+
+  const [matchMain] = useState(useRouteMatch('/'));
+  const [matchAbout] = useState(useRouteMatch('/about'));
+  const [matchInstructions] = useState(useRouteMatch('/instructions'));
+  const [matchContact] = useState(useRouteMatch('/contact'));
+
   return (
     <nav className={styles.nav}>
       {isMenuVisible ? (
@@ -26,20 +32,44 @@ const Menu = () => {
       )}
       {isMenuVisible && (
         <ul className={styles.list}>
-          <li className={styles.listItem}>
-            <Link to='/'>Главная</Link>
+          <li className={`${styles.listItem} `}>
+            <NavLink
+              to='/'
+              className={`${matchMain?.isExact ? styles.currentlistItem : ''}`}
+            >
+              Главная
+            </NavLink>
           </li>
           <li className={styles.listItemSeparator}>|</li>
           <li className={styles.listItem}>
-            <Link to='/about'>О приставке</Link>
+            <NavLink
+              to='/about'
+              className={`${matchAbout?.isExact ? styles.currentlistItem : ''}`}
+            >
+              О приставке
+            </NavLink>
           </li>
           <li className={styles.listItemSeparator}>|</li>
           <li className={styles.listItem}>
-            <Link to='/instructions'>Инструкции</Link>
+            <NavLink
+              to='/instructions'
+              className={`${
+                matchInstructions?.isExact ? styles.currentlistItem : ''
+              }`}
+            >
+              Инструкции
+            </NavLink>
           </li>
           <li className={styles.listItemSeparator}>|</li>
           <li className={styles.listItem}>
-            <Link to='/contact'>Свяжитесь с нами</Link>
+            <NavLink
+              to='/contact'
+              className={`${
+                matchContact?.isExact ? styles.currentlistItem : ''
+              }`}
+            >
+              Свяжитесь с нами
+            </NavLink>
           </li>
         </ul>
       )}
