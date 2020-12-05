@@ -10,10 +10,10 @@ import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menu
 const Menu = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  const [matchMain] = useState(useRouteMatch('/'));
   const [matchAbout] = useState(useRouteMatch('/about'));
-  const [matchInstructions] = useState(useRouteMatch('/instructions'));
   const [matchContact] = useState(useRouteMatch('/contact'));
+  const [matchInstructions] = useState(useRouteMatch('/instructions'));
+  const [matchMain] = useState(useRouteMatch('/'));
 
   return (
     <nav className={styles.nav}>
