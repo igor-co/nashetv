@@ -1,3 +1,5 @@
+@import "./_assets/colors/colors";
+
 * {
   // border: 1px solid green !important;
   padding: 0;
@@ -7,6 +9,7 @@
     outline: none;
   }
 }
+
 
 @font-face {
   font-family: 'Roboto';
@@ -19,8 +22,10 @@
   src: local('Oswald'),
     url(./_assets/fonts/Oswald/Oswald-Regular.ttf) format('opentype');
 }
+html,
 body {
   font-family: 'Roboto';
+  color: $colorFont;
 }
 
 h1,
@@ -29,14 +34,19 @@ h3 {
   font-family: 'Oswald';
 }
 
+h1 {
+  color: $colorFontTitle;
+}
+
 .container {
   //   border: 1px solid salmon;
   margin: 0 1rem;
 }
 a {
-  color: #1d1d1f;
+  color: $colorFontTitle;
   text-decoration: none;
+
   &:hover {
-    color: #1a8fdd;
+    color: $colorCorporate;
   }
 }
