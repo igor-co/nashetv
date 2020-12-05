@@ -1,42 +1,7 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem 0;
-    .logo {
-      align-self: center;
-      font-family: 'Oswald';
-      font-size: 1.3rem;
-    }
-  
-    .nav {
-      .list {
-        display: flex;
-        flex-direction: column;
-        // flex-direction: row;
-        list-style-type: none;
-        padding-left: 0;
-        li:first-of-type {
-          margin-left: 0px;
-        }
-        li:last-of-type {
-          margin-right: 0px;
-        }
-      }
-      .listItem {
-        margin: 0 2rem;
-      }
-      .listItemSeparator {
-        display: none;
-      }
-    }
+
+.content {
+  .mainTitle {
+    font-size: 1.5rem;
+    font-weight: 400;
   }
-  
-  .content {
-    .mainTitle {
-      font-size: 1.5rem;
-      font-weight: 400;
-    }
-  }
-  
-  .footer {
-  }
+}

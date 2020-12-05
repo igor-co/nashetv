@@ -1,18 +1,16 @@
+import './App.module.scss';
 
+//layout component?
 
-import  './App.module.scss';
-
+import { Header } from './_components/Header/Header';
 import { Main } from './pages/Main/Main';
 
-
-
 const App = () => {
- 
   return (
-    <>     
-      <Main/>
+    <>
+      <Header />
+      <Main />
     </>
-  
   );
 };
 
