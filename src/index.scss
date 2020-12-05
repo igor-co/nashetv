@@ -1,0 +1,32 @@
+* {
+  // border: 1px solid green !important;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'),
+    url(./_assets/fonts/Roboto/Roboto-Regular.ttf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: local('Oswald'),
+    url(./_assets/fonts/Oswald/Oswald-Regular.ttf) format('opentype');
+}
+body {
+  font-family: 'Roboto';
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Oswald';
+}
+
+.container {
+//   border: 1px solid salmon;
+  margin: 0 1rem;
+}
