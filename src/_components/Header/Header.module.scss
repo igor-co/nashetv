@@ -8,25 +8,5 @@
     font-size: 1.3rem;
   }
 
-  .nav {
-    .list {
-      display: flex;
-      flex-direction: column;
-      // flex-direction: row;
-      list-style-type: none;
-      padding-left: 0;
-      li:first-of-type {
-        margin-left: 0px;
-      }
-      li:last-of-type {
-        margin-right: 0px;
-      }
-    }
-    .listItem {
-      margin: 0 2rem;
-    }
-    .listItemSeparator {
-      display: none;
-    }
-  }
+  
 }
