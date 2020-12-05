@@ -5,11 +5,11 @@ import { Footer } from './_components/Footer/Footer';
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div className={styles.layout}>
       <Header />
-      <content className={styles.content}>{children}</content>
+      <content>{children}</content>
       <Footer />
-    </>
+    </div>
   );
 };
 
