@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import styles from './Menu.module.scss';
 
-import { ReactComponent as MenuIcon } from '../../../../_assets/icons/menuIcon.svg';
-import { ReactComponent as CloseIcon } from '../../../../_assets/icons/closeIcon.svg';
+import { ReactComponent as CloseIcon } from '../../../../../../_assets/icons/closeIcon.svg';
+import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menuIcon.svg';
 
 const Menu = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
