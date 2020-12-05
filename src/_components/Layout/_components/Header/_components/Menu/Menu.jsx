@@ -40,7 +40,9 @@ const Menu = () => {
               Главная
             </NavLink>
           </li>
+
           <li className={styles.listItemSeparator}>|</li>
+
           <li className={styles.listItem}>
             <NavLink
               to='/about'
@@ -49,7 +51,9 @@ const Menu = () => {
               О приставке
             </NavLink>
           </li>
+
           <li className={styles.listItemSeparator}>|</li>
+
           <li className={styles.listItem}>
             <NavLink
               to='/instructions'
@@ -60,7 +64,9 @@ const Menu = () => {
               Инструкции
             </NavLink>
           </li>
+
           <li className={styles.listItemSeparator}>|</li>
+
           <li className={styles.listItem}>
             <NavLink
               to='/contact'
