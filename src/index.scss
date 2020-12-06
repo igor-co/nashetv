@@ -1,4 +1,4 @@
-@import "./_assets/colors/colors";
+@import './_assets/colors/colors';
 
 * {
   // border: 1px solid green !important;
@@ -9,7 +9,6 @@
     outline: none;
   }
 }
-
 
 @font-face {
   font-family: 'Roboto';
@@ -26,12 +25,25 @@ html,
 body {
   font-family: 'Roboto';
   color: $colorFont;
+  font-size: 16px;
 }
 
 h1,
 h2,
 h3 {
   font-family: 'Oswald';
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  b {
+    color: $colorCorporate;
+  }
+}
+
+p {
+  font-size: 14px;
 }
 
 h1 {
