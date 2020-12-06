@@ -1,0 +1,61 @@
+@import '../../../../../../_assets/colors/colors';
+
+nav {
+  font-size: 1rem;
+  a {
+    color: $colorCorporate;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+    .listItemSeparator {
+      display: none;
+    }
+    .listItem {
+      color: $colorCorporate;
+      margin-top: 1.1rem;
+      &:hover {
+        cursor: pointer;
+      }
+      &:last-of-type {
+        margin-bottom: 1.1rem;
+      }
+    }
+    .currentlistItem {
+      color: $colorCorporate;
+      font-weight: 600;
+    }
+  }
+}
+
+@media screen and (min-width: 730px) {
+  nav {
+    margin-top: 2rem;
+    a {
+      color: $colorFont;
+    }
+  }
+  .list {
+    flex-direction: row;
+    margin-bottom: 1.1rem;
+  }
+  .listItem {
+    align-self: center;
+    margin: 0 2rem;
+    &:last-of-type {
+      margin-top: 1.1rem;
+      margin-bottom: 0 !important;
+    }
+  }
+  .listItemSeparator {
+    display: flex !important;
+    align-self: flex-end;
+    color: $colorFont;
+  }
+  .currentlistItem {
+  }
+}
