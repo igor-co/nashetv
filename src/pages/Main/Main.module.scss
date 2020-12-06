@@ -19,12 +19,24 @@
     .featuresContainer {
       display: flex;
       flex-direction: column;
+      margin: 1.5rem 0;
       font-size: 0.9rem;
       .androidTv {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.4rem;
       }
+
       .assistant {
+        display: flex;
+        align-items: center;
+      }
+      span {
+        padding-right: 1rem;
       }
       .chromecast {
+        display: flex;
+        align-items: center;
       }
     }
   }
@@ -44,7 +56,14 @@
   }
   .callToAction {
     button {
-      width: 100% ;
+      width: 100%;
     }
+  }
+}
+
+@media screen and (min-width: 475px) {
+  .featuresContainer {
+    flex-direction: row !important;
+    justify-content: space-between;
   }
 }

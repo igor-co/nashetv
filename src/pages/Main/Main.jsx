@@ -2,6 +2,10 @@ import styles from './Main.module.scss';
 
 import { useCheckIsDesktop } from '../../_hooks/useCheckIsDesktop';
 
+import { ReactComponent as GoogleAssistant } from '../../_assets/img/googleAssistant.svg';
+import { ReactComponent as Chromecast } from '../../_assets/img/chromecast.svg';
+import { ReactComponent as AndroidTv } from '../../_assets/img/androidTv.svg';
+
 import { Layout } from '../../_components/Layout/Layout';
 
 const Main = () => {
@@ -21,9 +25,17 @@ const Main = () => {
             <h2>Приствавка превратит любой телевизор в Smart Tv</h2>
 
             <div className={styles.featuresContainer}>
-              <div className={styles.androidTv}>android tv</div>
-              <div className={styles.assistant}>Google Assistant</div>
-              <div className={styles.chromecast}>Chromecast</div>
+              <div className={styles.androidTv}>
+                <AndroidTv />
+              </div>
+              <div className={styles.assistant}>
+                <span>Google Assistant</span>
+                <GoogleAssistant />
+              </div>
+              <div className={styles.chromecast}>
+                <span>Chromecast</span>
+                <Chromecast />
+              </div>
             </div>
           </div>
 
