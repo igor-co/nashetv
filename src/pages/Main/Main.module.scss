@@ -1,4 +1,50 @@
+@import '../../_assets/colors/colors';
+
 .mainTitle {
   font-size: 1.5rem;
   font-weight: 400;
+  max-width: 300px;
+}
+
+.contentRow {
+  display: flex;
+  flex-direction: column;
+
+  .tvBoxInfoContainer {
+    display: flex;
+    flex-direction: column;
+    .image {
+      height: 235px;
+    }
+    .featuresContainer {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+      .androidTv {
+      }
+      .assistant {
+      }
+      .chromecast {
+      }
+    }
+  }
+
+  .channelsInfoContainer {
+    .languages {
+    }
+    .categories {
+    }
+    .moreChannels {
+    }
+  }
+}
+
+.priceActionRow {
+  .price {
+  }
+  .callToAction {
+    button {
+      width: 100% ;
+    }
+  }
 }
