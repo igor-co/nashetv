@@ -5,6 +5,7 @@ import { useCheckIsDesktop } from '../../_hooks/useCheckIsDesktop';
 import { ReactComponent as GoogleAssistant } from '../../_assets/img/googleAssistant.svg';
 import { ReactComponent as Chromecast } from '../../_assets/img/chromecast.svg';
 import { ReactComponent as AndroidTv } from '../../_assets/img/androidTv.svg';
+import { useGetViewportSizes } from '../../_hooks/useGetViewportSizes';
 
 import { Layout } from '../../_components/Layout/Layout';
 
@@ -13,7 +14,7 @@ const Main = () => {
     <Layout>
       <div className='container'>
         <div className={`${styles.contentRow}`}>
-          {!useCheckIsDesktop() && (
+          {useGetViewportSizes()?.width < 1024 && (
             <h1 className={styles.mainTitle}>
               Приставка с нашим телевидением и фильмотекой
             </h1>
@@ -42,7 +43,7 @@ const Main = () => {
           </section>
 
           <section className={styles.channelsInfoContainer}>
-            {useCheckIsDesktop() && (
+            {useGetViewportSizes()?.width >= 1024 && (
               <h1 className={styles.mainTitle}>
                 Приставка с нашим телевидением и фильмотекой
               </h1>

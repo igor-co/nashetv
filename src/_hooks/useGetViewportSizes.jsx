@@ -8,7 +8,7 @@ const getWindowDimensions = () => {
   };
 };
 
-const useCheckIsDesktop = () => {
+const useGetViewportSizes = () => {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
@@ -22,7 +22,7 @@ const useCheckIsDesktop = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return windowDimensions.width >= 1024;
+  return windowDimensions;
 };
 
-export { useCheckIsDesktop };
+export { useGetViewportSizes };
