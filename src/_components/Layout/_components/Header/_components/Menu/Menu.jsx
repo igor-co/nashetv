@@ -1,23 +1,64 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 
 import styles from './Menu.module.scss';
 
-import { NavLink, useRouteMatch } from 'react-router-dom';
+import { useGetViewportSizes } from '../../../../../../_hooks/useGetViewportSizes';
 
 import { ReactComponent as CloseIcon } from '../../../../../../_assets/icons/closeIcon.svg';
 import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menuIcon.svg';
 
 const Menu = () => {
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [afterRenderWidth, setAfterRenderWidth] = useState(
+    useGetViewportSizes()?.width
+  );
+  const [firstRenderWidth] = useState(useGetViewportSizes()?.width);
+  const [isMenuVisible, setIsMenuVisible] = useState(
+    useGetViewportSizes()?.width >= 730
+  );
 
   const [matchAbout] = useState(useRouteMatch('/about'));
   const [matchContact] = useState(useRouteMatch('/contact'));
   const [matchInstructions] = useState(useRouteMatch('/instructions'));
   const [matchMain] = useState(useRouteMatch('/'));
 
+  useEffect(() => {
+    const root = document.getElementById('layout');
+
+    const observer = new ResizeObserver((entries) =>
+      entries.forEach((entry) => {
+        if (firstRenderWidth !== entry.contentRect.width + 17) {
+          setAfterRenderWidth(entry.contentRect.width + 17);
+        }
+        if (entry.contentRect.width + 17 >= 730) {
+          setIsMenuVisible(true);
+        }
+      })
+    );
+
+    if (root !== null || root !== undefined) {
+      observer.observe(root);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  });
+
+  useEffect(() => {
+    if (firstRenderWidth < 730) {
+      if (afterRenderWidth - 17 < 730) {
+        setIsMenuVisible(false);
+      }
+    }
+  }, [afterRenderWidth]);
+
+  console.log('firstRenderWidth', firstRenderWidth);
+  console.log('afterRenderWidth', afterRenderWidth);
+  console.log('isMenuVisible', isMenuVisible);
   return (
     <>
-      {!isMenuVisible && (
+      {afterRenderWidth < 730 && !isMenuVisible && (
         <MenuIcon
           className={styles.icon}
           onClick={() => {
@@ -26,17 +67,17 @@ const Menu = () => {
         />
       )}
 
-      <nav className={styles.nav}>
-        {isMenuVisible && (
-          <CloseIcon
-            className={styles.icon}
-            onClick={() => {
-              setIsMenuVisible(false);
-            }}
-          />
-        )}
-       
-        {isMenuVisible && (
+      {isMenuVisible && (
+        <nav className={styles.nav}>
+          {afterRenderWidth < 730 && isMenuVisible && (
+            <CloseIcon
+              className={styles.icon}
+              onClick={() => {
+                setIsMenuVisible(false);
+              }}
+            />
+          )}
+
           <ul className={styles.list}>
             <li className={styles.listItem}>
               <NavLink
@@ -88,8 +129,8 @@ const Menu = () => {
               </NavLink>
             </li>
           </ul>
-        )}
-      </nav>
+        </nav>
+      )}
     </>
   );
 };

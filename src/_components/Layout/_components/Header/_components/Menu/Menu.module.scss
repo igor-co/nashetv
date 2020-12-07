@@ -14,22 +14,14 @@
   .list {
     display: flex;
     flex-direction: column;
-    // flex-direction: row;
     list-style-type: none;
     padding-left: 0;
-    /* li:first-of-type {
-      margin-left: 0px;
-    }
-    li:last-of-type {
-      margin-right: 0px;
-    } */
 
     li:last-of-type {
       margin-bottom: 2rem;
     }
   }
   .listItem {
-    // margin: 0 2rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: 2rem;
@@ -41,5 +33,36 @@
   .currentlistItem {
     font-weight: 600;
     color: $colorCorporate;
+  }
+}
+@media screen and (min-width: 730px) {
+  .nav {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    background-color: white;
+    margin-top: 0;
+    ul {
+      margin: 0;
+    }
+    .list {
+      flex-direction: row;
+      margin: 0;
+      li:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    .listItem {
+      margin: 0;
+    }
+    .listItemSeparator {
+      display: inline-block;
+      margin: 0 2rem;
+    }
+    .currentlistItem {
+      font-weight: 600;
+      color: $colorCorporate;
+    }
   }
 }
