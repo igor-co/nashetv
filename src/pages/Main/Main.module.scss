@@ -14,8 +14,15 @@
   .tvBoxInfoContainer {
     display: flex;
     flex-direction: column;
+
     .image {
-      height: 235px;
+      height: 40vh;
+      background-image: url(../../_assets/img/pristavka.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
     .converHeader {
       margin-top: 1.3rem;
     }
