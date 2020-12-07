@@ -4,6 +4,7 @@
   font-size: 1.5rem;
   font-weight: 400;
   max-width: 300px;
+  margin-bottom: 1.3rem;
 }
 
 .contentRow {
@@ -15,6 +16,8 @@
     flex-direction: column;
     .image {
       height: 235px;
+    .converHeader {
+      margin-top: 1.3rem;
     }
     .featuresContainer {
       display: flex;
@@ -52,10 +55,15 @@
 }
 
 .priceActionRow {
+  display: flex;
+  flex-direction: column;
   .price {
+    color: $colorCorporate;
+    font-size: 1.5rem;
   }
   .callToAction {
-    button {
+    display: flex;
+    .bottonAction {
       width: 100%;
     }
   }
@@ -64,6 +72,30 @@
 @media screen and (min-width: 475px) {
   .featuresContainer {
     flex-direction: row !important;
+    justify-content: space-between;
+  }
+  .mainTitle {
+    font-size: 2.2rem;
+    max-width: 400px;
+  }
+}
+@media screen and (min-width: 650px) {
+  .priceActionRow {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 720px) {
+  .mainTitle {
+    font-size: 3rem;
+    max-width: 600px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .contentRow {
+    flex-direction: row;
+    flex-flow: row-reverse;
     justify-content: space-between;
   }
 }
