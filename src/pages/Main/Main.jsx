@@ -23,7 +23,7 @@ const Main = () => {
             <div className={styles.image}></div>
 
             <h2 className={styles.convertHeader}>
-              Приствавка превратит любой телевизор в Smart Tv
+              Приставка превратит любой телевизор в Smart Tv
             </h2>
 
             <div className={styles.featuresContainer}>
