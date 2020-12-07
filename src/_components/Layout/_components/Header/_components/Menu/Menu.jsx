@@ -59,23 +59,27 @@ const Menu = () => {
   return (
     <>
       {afterRenderWidth < 730 && !isMenuVisible && (
-        <MenuIcon
-          className={styles.icon}
-          onClick={() => {
-            setIsMenuVisible(true);
-          }}
-        />
+        <div className={styles.icon} >
+          <MenuIcon
+            className={styles.burger}
+            onClick={() => {
+              setIsMenuVisible(true);
+            }}
+          />
+        </div>
       )}
 
       {isMenuVisible && (
         <nav className={styles.nav}>
           {afterRenderWidth < 730 && isMenuVisible && (
-            <CloseIcon
-              className={styles.icon}
-              onClick={() => {
-                setIsMenuVisible(false);
-              }}
-            />
+            <div className={styles.icon} >
+              <CloseIcon
+                className={styles.close}
+                onClick={() => {
+                  setIsMenuVisible(false);
+                }}
+              />
+            </div>
           )}
 
           <ul className={styles.list}>

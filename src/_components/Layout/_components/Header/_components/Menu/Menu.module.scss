@@ -3,6 +3,17 @@
 .icon {
   align-self: center;
   justify-self: center;
+  :hover {
+    cursor: pointer;
+  }
+}
+.burger {
+  fill: $colorCorporate;
+}
+.close {
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+  fill: $colorDanger;
 }
 .nav {
   position: absolute;
@@ -37,6 +48,8 @@
 }
 @media screen and (min-width: 730px) {
   .nav {
+    display: flex;
+    align-items: center;
     position: relative;
     top: auto;
     left: auto;
