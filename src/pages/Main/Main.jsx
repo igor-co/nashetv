@@ -47,7 +47,7 @@ const Main = () => {
               </h1>
             )}
             <h2>
-              IPTV c более чем <b>1500 каналов</b> всего за <b>1€ в месяц</b>
+              IPTV c более чем <b>1500 каналов</b> всего за <b>15€ в ГОД</b>
             </h2>
 
             <div className={styles.languages}>
