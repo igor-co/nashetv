@@ -52,6 +52,9 @@ h1 {
 
 .container {
   margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
 a {
@@ -68,8 +71,30 @@ a {
   border: none;
   font-size: 1.5rem;
   border-radius: 3px;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 2.5rem;
   &:hover {
     cursor: pointer;
+  }
+}
+@media screen and (min-width: 820px) {
+  .container {
+    margin: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    max-width: 1200px;
+    margin: 0 3rem;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .container {
+    margin: 0 auto;
   }
 }

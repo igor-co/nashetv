@@ -53,13 +53,10 @@ const Menu = () => {
     }
   }, [afterRenderWidth]);
 
-  console.log('firstRenderWidth', firstRenderWidth);
-  console.log('afterRenderWidth', afterRenderWidth);
-  console.log('isMenuVisible', isMenuVisible);
   return (
     <>
       {afterRenderWidth < 730 && !isMenuVisible && (
-        <div className={styles.icon} >
+        <div className={styles.icon}>
           <MenuIcon
             className={styles.burger}
             onClick={() => {
@@ -72,7 +69,7 @@ const Menu = () => {
       {isMenuVisible && (
         <nav className={styles.nav}>
           {afterRenderWidth < 730 && isMenuVisible && (
-            <div className={styles.icon} >
+            <div className={styles.icon}>
               <CloseIcon
                 className={styles.close}
                 onClick={() => {

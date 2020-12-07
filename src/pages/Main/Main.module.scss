@@ -16,7 +16,7 @@
     flex-direction: column;
 
     .image {
-      height: 40vh;
+      height: 50vh;
       background-image: url(../../_assets/img/pristavka.png);
       background-repeat: no-repeat;
       background-position: center;
@@ -87,21 +87,39 @@
   .featuresContainer {
     flex-direction: row !important;
     justify-content: space-between;
+    span {
+      padding-left: 1rem;
+    }
+  }
+  .androidTv {
+    margin-bottom: 0 !important;
   }
   .mainTitle {
     font-size: 2.2rem;
     max-width: 400px;
   }
+  .convertHeader,
+  .iptv {
+    font-size: 1.3rem;
+  }
 }
 @media screen and (min-width: 650px) {
+  p {
+    font-size: 18px !important;
+    max-width: 522px;
+  }
+  .convertHeader,
+  .iptv {
+    font-size: 1.65rem;
+  }
+  .assistant,
+  .chromecast {
+    font-size: 1.2rem;
+  }
   .priceActionRow {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between !important;
     align-items: center;
-    align-self: center;
-  }
-  .image {
-    height: 50vh;
   }
 }
 @media screen and (min-width: 720px) {
@@ -111,20 +129,46 @@
   }
   .image {
     width: 50vw;
+    background-position: right !important;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .contentRow {
     flex-direction: row;
     flex-flow: row-reverse;
     justify-content: space-between;
+    margin-top: 4rem;
   }
   .mainTitle {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     max-width: 500px;
+  }
+
+  .image {
+    width: 550px;
+    background-position: right !important;
+  }
+
+  .iptv,
+  .convertHeader {
+    font-size: 1.5rem;
+  }
+
+  .convertHeader {
+    margin-top: 3.5rem !important;
+    text-align: end;
+  }
+
+  .featuresContainer {
+    align-self: flex-end;
   }
 }
 @media screen and (min-width: 1190px) {
+  .iptv,
+  .convertHeader {
+    font-size: 1.8rem;
+  }
   .mainTitle {
     font-size: 3rem;
     max-width: 600px;
