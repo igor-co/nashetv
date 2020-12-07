@@ -31,6 +31,7 @@
       flex-direction: column;
       margin: 1.5rem 0;
       font-size: 0.9rem;
+      max-width: 480px;
       .androidTv {
         display: flex;
         align-items: center;
@@ -92,11 +93,17 @@
     justify-content: space-between;
     align-items: center;
   }
+  .image {
+    height: 50vh;
+  }
 }
 @media screen and (min-width: 720px) {
   .mainTitle {
     font-size: 3rem;
     max-width: 600px;
+  }
+  .image {
+    width: 50vw;
   }
 }
 @media screen and (min-width: 1024px) {
