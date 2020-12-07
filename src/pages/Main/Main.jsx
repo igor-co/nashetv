@@ -22,7 +22,7 @@ const Main = () => {
           <section className={styles.tvBoxInfoContainer}>
             <div className={styles.image}></div>
 
-            <h2 className={styles.converHeader}>
+            <h2 className={styles.convertHeader}>
               Приствавка превратит любой телевизор в Smart Tv
             </h2>
 
