@@ -56,6 +56,23 @@ nav {
     align-self: flex-end;
     color: $colorFont;
   }
-  .currentlistItem {
+}
+
+@media screen and (min-width: 1024px) {
+  nav {
+    margin-top: 0;
+    padding: 0;
+  }
+  .list {
+    margin-bottom: 0 !important;
+  }
+  .listItem {
+    margin-top: 0 !important;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 }

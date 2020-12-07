@@ -27,3 +27,26 @@ footer {
     font-weight: 200;
   }
 }
+@media screen and (min-width: 1024px) {
+  .flexContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 0;
+    nav {
+      order: 2;
+      align-self: center;
+    }
+    .bigor {
+      order: 3;
+      margin: 0;
+    }
+    .logo {
+      order: 1;
+    }
+  }
+
+  .logo {
+    margin: 0 !important;
+  }
+}
