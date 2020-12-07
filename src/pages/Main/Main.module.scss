@@ -105,4 +105,14 @@
     flex-flow: row-reverse;
     justify-content: space-between;
   }
+  .mainTitle {
+    font-size: 2.5rem;
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 1190px) {
+  .mainTitle {
+    font-size: 3rem;
+    max-width: 600px;
+  }
 }
