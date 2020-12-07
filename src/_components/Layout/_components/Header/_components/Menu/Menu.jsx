@@ -16,70 +16,81 @@ const Menu = () => {
   const [matchMain] = useState(useRouteMatch('/'));
 
   return (
-    <nav className={styles.nav}>
-      {isMenuVisible ? (
-        <CloseIcon
-          onClick={() => {
-            setIsMenuVisible(false);
-          }}
-        />
-      ) : (
+    <>
+      {!isMenuVisible && (
         <MenuIcon
+          className={styles.icon}
           onClick={() => {
             setIsMenuVisible(true);
           }}
         />
       )}
-      {isMenuVisible && (
-        <ul className={styles.list}>
-          <li className={`${styles.listItem} `}>
-            <NavLink
-              to='/'
-              className={`${matchMain?.isExact ? styles.currentlistItem : ''}`}
-            >
-              Главная
-            </NavLink>
-          </li>
 
-          <li className={styles.listItemSeparator}>|</li>
+      <nav className={styles.nav}>
+        {isMenuVisible && (
+          <CloseIcon
+            className={styles.icon}
+            onClick={() => {
+              setIsMenuVisible(false);
+            }}
+          />
+        )}
+       
+        {isMenuVisible && (
+          <ul className={styles.list}>
+            <li className={styles.listItem}>
+              <NavLink
+                to='/'
+                className={`${
+                  matchMain?.isExact ? styles.currentlistItem : ''
+                }`}
+              >
+                Главная
+              </NavLink>
+            </li>
 
-          <li className={styles.listItem}>
-            <NavLink
-              to='/about'
-              className={`${matchAbout?.isExact ? styles.currentlistItem : ''}`}
-            >
-              О приставке
-            </NavLink>
-          </li>
+            <li className={styles.listItemSeparator}>|</li>
 
-          <li className={styles.listItemSeparator}>|</li>
+            <li className={styles.listItem}>
+              <NavLink
+                to='/about'
+                className={`${
+                  matchAbout?.isExact ? styles.currentlistItem : ''
+                }`}
+              >
+                О приставке
+              </NavLink>
+            </li>
 
-          <li className={styles.listItem}>
-            <NavLink
-              to='/instructions'
-              className={`${
-                matchInstructions?.isExact ? styles.currentlistItem : ''
-              }`}
-            >
-              Инструкции
-            </NavLink>
-          </li>
+            <li className={styles.listItemSeparator}>|</li>
 
-          <li className={styles.listItemSeparator}>|</li>
+            <li className={styles.listItem}>
+              <NavLink
+                to='/instructions'
+                className={`${
+                  matchInstructions?.isExact ? styles.currentlistItem : ''
+                }`}
+              >
+                Инструкции
+              </NavLink>
+            </li>
 
-          <li className={styles.listItem}>
-            <NavLink
-              to='/contact'
-              className={`${
-                matchContact?.isExact ? styles.currentlistItem : ''
-              }`}
-            >
-              Свяжитесь с нами
-            </NavLink>
-          </li>
-        </ul>
-      )}
-    </nav>
+            <li className={styles.listItemSeparator}>|</li>
+
+            <li className={styles.listItem}>
+              <NavLink
+                to='/contact'
+                className={`${
+                  matchContact?.isExact ? styles.currentlistItem : ''
+                }`}
+              >
+                Свяжитесь с нами
+              </NavLink>
+            </li>
+          </ul>
+        )}
+      </nav>
+    </>
   );
 };
 

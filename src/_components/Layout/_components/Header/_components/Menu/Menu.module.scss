@@ -1,21 +1,39 @@
 @import '../../../../../../_assets/colors/colors';
 
+.icon {
+  align-self: center;
+  justify-self: center;
+}
 .nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: $colorAlternativeBg;
+
   .list {
     display: flex;
     flex-direction: column;
     // flex-direction: row;
     list-style-type: none;
     padding-left: 0;
-    li:first-of-type {
+    /* li:first-of-type {
       margin-left: 0px;
     }
     li:last-of-type {
       margin-right: 0px;
+    } */
+
+    li:last-of-type {
+      margin-bottom: 2rem;
     }
   }
   .listItem {
-    margin: 0 2rem;
+    // margin: 0 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    align-self: flex-start;
   }
   .listItemSeparator {
     display: none;
