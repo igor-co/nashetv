@@ -4,7 +4,7 @@ import { FooterNav } from './_components/FooterNav/FooterNav';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <div className={`${styles.flexContainer} container`}>
         <FooterNav />
         <div className={styles.bigor}>

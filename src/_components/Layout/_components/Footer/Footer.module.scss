@@ -1,8 +1,11 @@
 @import '../../../../_assets/colors/colors';
 
 footer {
-  margin: auto 0 0;
+  bottom: 0;
   background-color: $colorAlternativeBg;
+}
+.footer {
+  margin-top: 5rem;
 }
 .bigor {
   align-self: center;
@@ -29,8 +32,8 @@ footer {
 }
 @media screen and (min-width: 1024px) {
   .flexContainer {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row !important;
+    justify-content: space-between !important;
     align-items: center;
     padding: 3rem 0;
     nav {
