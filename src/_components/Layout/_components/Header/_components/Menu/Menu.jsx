@@ -89,16 +89,14 @@ const Menu = () => {
               nav = navEl;
             }}
           >
-            {isMenuVisible && (
-              <div className={styles.icon} id='closeIcon'>
-                <CloseIcon
-                  className={styles.close}
-                  onClick={() => {
-                    setIsMenuVisible(false);
-                  }}
-                />
-              </div>
-            )}
+            <div className={styles.icon} id='closeIcon'>
+              <CloseIcon
+                className={styles.close}
+                onClick={() => {
+                  setIsMenuVisible(false);
+                }}
+              />
+            </div>
 
             <ul className={styles.list} id='navList'>
               <li className={`${styles.listItem}`}>
