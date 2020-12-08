@@ -1,38 +1,61 @@
-import { useEffect, useState } from 'react';
-import { NavLink, useRouteMatch } from 'react-router-dom';
-
+import { useEffect, useRef, useState } from 'react';
 import styles from './Menu.module.scss';
 
-import { useGetViewportSizes } from '../../../../../../_hooks/useGetViewportSizes';
+import { NavLink, useRouteMatch } from 'react-router-dom';
+import gsap, { Power3, Elastic } from 'gsap';
 
 import { ReactComponent as CloseIcon } from '../../../../../../_assets/icons/closeIcon.svg';
 import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menuIcon.svg';
 
 const Menu = () => {
-  const [afterRenderWidth, setAfterRenderWidth] = useState(
-    useGetViewportSizes()?.width
-  );
-  const [firstRenderWidth] = useState(useGetViewportSizes()?.width);
-  const [isMenuVisible, setIsMenuVisible] = useState(
-    useGetViewportSizes()?.width >= 730
-  );
+  const [isBurgherMenu, setIsBurgherMenu] = useState();
+  const [isMenuVisible, setIsMenuVisible] = useState();
 
   const [matchAbout] = useState(useRouteMatch('/about'));
   const [matchContact] = useState(useRouteMatch('/contact'));
   const [matchInstructions] = useState(useRouteMatch('/instructions'));
   const [matchMain] = useState(useRouteMatch('/'));
 
+  const [tl] = useState(gsap.timeline());
+  let nav = useRef();
+
+  useEffect(() => {
+    if (isMenuVisible) {
+      tl.from(nav, {
+        duration: 0.8,
+        transformOrigin: 'right top',
+        height: 0,
+        skewY: 5,
+        ease: Power3.easeInOut,
+      })
+
+        .from('#navList .navLink', {
+          display: 'none',
+          xPercent: 100,
+          stagger: 0.07,
+          duration: 0.2,
+          ease: 'back',
+        })
+
+        .from(
+          '#closeIcon',
+          {
+            opacity: 0,
+            yPercent: -100,
+            duration: 1.2,
+            ease: Elastic.easeInOut.config(2.5, 1),
+          },
+          '-=0.7'
+        );
+    }
+  }, [isMenuVisible, nav]);
+
   useEffect(() => {
     const root = document.getElementById('layout');
 
     const observer = new ResizeObserver((entries) =>
       entries.forEach((entry) => {
-        if (firstRenderWidth !== entry.contentRect.width + 17) {
-          setAfterRenderWidth(entry.contentRect.width + 17);
-        }
-        if (entry.contentRect.width + 17 >= 730) {
-          setIsMenuVisible(true);
-        }
+        setIsBurgherMenu(entry.contentRect.width < 730);
       })
     );
 
@@ -45,31 +68,28 @@ const Menu = () => {
     };
   });
 
-  useEffect(() => {
-    if (firstRenderWidth < 730) {
-      if (afterRenderWidth - 17 < 730) {
-        setIsMenuVisible(false);
-      }
-    }
-  }, [afterRenderWidth]);
+  if (isBurgherMenu) {
+    return (
+      <>
+        {!isMenuVisible && (
+          <div className={styles.icon}>
+            <MenuIcon
+              className={styles.burger}
+              onClick={() => {
+                setIsMenuVisible(true);
+              }}
+            />
+          </div>
+        )}
 
-  return (
-    <>
-      {afterRenderWidth < 730 && !isMenuVisible && (
-        <div className={styles.icon}>
-          <MenuIcon
-            className={styles.burger}
-            onClick={() => {
-              setIsMenuVisible(true);
+        {isMenuVisible && (
+          <nav
+            className={styles.nav}
+            ref={(navEl) => {
+              nav = navEl;
             }}
-          />
-        </div>
-      )}
-
-      {isMenuVisible && (
-        <nav className={styles.nav}>
-          {afterRenderWidth < 730 && isMenuVisible && (
-            <div className={styles.icon}>
+          >
+            <div className={styles.icon} id='closeIcon'>
               <CloseIcon
                 className={styles.close}
                 onClick={() => {
@@ -77,62 +97,111 @@ const Menu = () => {
                 }}
               />
             </div>
-          )}
 
-          <ul className={styles.list}>
-            <li className={styles.listItem}>
-              <NavLink
-                to='/'
-                className={`${
-                  matchMain?.isExact ? styles.currentlistItem : ''
-                }`}
-              >
-                Главная
-              </NavLink>
-            </li>
+            <ul className={styles.list} id='navList'>
+              <li className={`${styles.listItem}`}>
+                <NavLink
+                  to='/'
+                  className={`${
+                    matchMain?.isExact ? styles.currentlistItem : ''
+                  } navLink`}
+                >
+                  Главная
+                </NavLink>
+              </li>
 
-            <li className={styles.listItemSeparator}>|</li>
+              <li className={styles.listItemSeparator}>|</li>
 
-            <li className={styles.listItem}>
-              <NavLink
-                to='/about'
-                className={`${
-                  matchAbout?.isExact ? styles.currentlistItem : ''
-                }`}
-              >
-                О приставке
-              </NavLink>
-            </li>
+              <li className={styles.listItem}>
+                <NavLink
+                  to='/about'
+                  className={`${
+                    matchAbout?.isExact ? styles.currentlistItem : ''
+                  } navLink`}
+                >
+                  О приставке
+                </NavLink>
+              </li>
 
-            <li className={styles.listItemSeparator}>|</li>
+              <li className={styles.listItemSeparator}>|</li>
 
-            <li className={styles.listItem}>
-              <NavLink
-                to='/instructions'
-                className={`${
-                  matchInstructions?.isExact ? styles.currentlistItem : ''
-                }`}
-              >
-                Инструкции
-              </NavLink>
-            </li>
+              <li className={styles.listItem}>
+                <NavLink
+                  to='/instructions'
+                  className={`${
+                    matchInstructions?.isExact ? styles.currentlistItem : ''
+                  } navLink`}
+                >
+                  Инструкции
+                </NavLink>
+              </li>
 
-            <li className={styles.listItemSeparator}>|</li>
+              <li className={styles.listItemSeparator}>|</li>
 
-            <li className={styles.listItem}>
-              <NavLink
-                to='/contact'
-                className={`${
-                  matchContact?.isExact ? styles.currentlistItem : ''
-                }`}
-              >
-                Свяжитесь с нами
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      )}
-    </>
+              <li className={styles.listItem}>
+                <NavLink
+                  to='/contact'
+                  className={`${
+                    matchContact?.isExact ? styles.currentlistItem : ''
+                  } navLink`}
+                >
+                  Свяжитесь с нами
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        )}
+      </>
+    );
+  }
+  return (
+    <nav className={styles.nav}>
+      <ul className={styles.list}>
+        <li className={styles.listItem}>
+          <NavLink
+            to='/'
+            className={`${matchMain?.isExact ? styles.currentlistItem : ''}`}
+          >
+            Главная
+          </NavLink>
+        </li>
+
+        <li className={styles.listItemSeparator}>|</li>
+
+        <li className={styles.listItem}>
+          <NavLink
+            to='/about'
+            className={`${matchAbout?.isExact ? styles.currentlistItem : ''}`}
+          >
+            О приставке
+          </NavLink>
+        </li>
+
+        <li className={styles.listItemSeparator}>|</li>
+
+        <li className={styles.listItem}>
+          <NavLink
+            to='/instructions'
+            className={`${
+              matchInstructions?.isExact ? styles.currentlistItem : ''
+            }`}
+          >
+            Инструкции
+          </NavLink>
+        </li>
+
+        <li className={styles.listItemSeparator}>|</li>
+
+        <li className={styles.listItem}>
+          <NavLink
+            to='/contact'
+            className={`${matchContact?.isExact ? styles.currentlistItem : ''}`}
+          >
+            Свяжитесь с нами
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
