@@ -1,11 +1,11 @@
 @import '../../../../_assets/colors/colors';
 
 footer {
-  bottom: 0;
   background-color: $colorAlternativeBg;
 }
 .footer {
-  margin-top: 5rem;
+  bottom: 0 !important;
+  margin-top: 7rem;
 }
 .bigor {
   align-self: center;
