@@ -10,16 +10,14 @@ import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menu
 const Menu = () => {
   const [isBurgherMenu, setIsBurgherMenu] = useState();
   const [isMenuVisible, setIsMenuVisible] = useState();
-  const [tl] = useState(gsap.timeline());
-
-  let nav = useRef();
 
   const [matchAbout] = useState(useRouteMatch('/about'));
   const [matchContact] = useState(useRouteMatch('/contact'));
   const [matchInstructions] = useState(useRouteMatch('/instructions'));
   const [matchMain] = useState(useRouteMatch('/'));
 
-  /* const tl = gsap.timeline(); */
+  const [tl] = useState(gsap.timeline());
+  let nav = useRef();
 
   useEffect(() => {
     if (isMenuVisible) {
