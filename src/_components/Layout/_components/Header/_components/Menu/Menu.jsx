@@ -9,13 +9,8 @@ import { ReactComponent as CloseIcon } from '../../../../../../_assets/icons/clo
 import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menuIcon.svg';
 
 const Menu = () => {
-  const [afterRenderWidth, setAfterRenderWidth] = useState(
-    useGetViewportSizes()?.width
-  );
-  const [firstRenderWidth] = useState(useGetViewportSizes()?.width);
-  const [isMenuVisible, setIsMenuVisible] = useState(
-    useGetViewportSizes()?.width >= 730
-  );
+  const [isMenuVisible, setIsMenuVisible] = useState();
+  const [isBurgherMenu, setIsBurgherMenu] = useState();
 
   const [matchAbout] = useState(useRouteMatch('/about'));
   const [matchContact] = useState(useRouteMatch('/contact'));
@@ -27,12 +22,7 @@ const Menu = () => {
 
     const observer = new ResizeObserver((entries) =>
       entries.forEach((entry) => {
-        if (firstRenderWidth !== entry.contentRect.width + 17) {
-          setAfterRenderWidth(entry.contentRect.width + 17);
-        }
-        if (entry.contentRect.width + 17 >= 730) {
-          setIsMenuVisible(true);
-        }
+        setIsBurgherMenu(entry.contentRect.width < 730);
       })
     );
 
@@ -45,95 +35,141 @@ const Menu = () => {
     };
   });
 
-  useEffect(() => {
-    if (firstRenderWidth < 730) {
-      if (afterRenderWidth - 17 < 730) {
-        setIsMenuVisible(false);
-      }
-    }
-  }, [afterRenderWidth]);
+  if (isBurgherMenu) {
+    return (
+      <>
+        {!isMenuVisible && (
+          <div className={styles.icon}>
+            <MenuIcon
+              className={styles.burger}
+              onClick={() => {
+                setIsMenuVisible(true);
+              }}
+            />
+          </div>
+        )}
 
-  return (
-    <>
-      {afterRenderWidth < 730 && !isMenuVisible && (
-        <div className={styles.icon}>
-          <MenuIcon
-            className={styles.burger}
-            onClick={() => {
-              setIsMenuVisible(true);
-            }}
-          />
-        </div>
-      )}
+        {isMenuVisible && (
+          <nav className={styles.nav}>
+            {isMenuVisible && (
+              <div className={styles.icon}>
+                <CloseIcon
+                  className={styles.close}
+                  onClick={() => {
+                    setIsMenuVisible(false);
+                  }}
+                />
+              </div>
+            )}
 
-      {isMenuVisible && (
-        <nav className={styles.nav}>
-          {afterRenderWidth < 730 && isMenuVisible && (
-            <div className={styles.icon}>
-              <CloseIcon
-                className={styles.close}
-                onClick={() => {
-                  setIsMenuVisible(false);
-                }}
-              />
-            </div>
-          )}
+            <ul className={styles.list}>
+              <li className={styles.listItem}>
+                <NavLink
+                  to='/'
+                  className={`${
+                    matchMain?.isExact ? styles.currentlistItem : ''
+                  }`}
+                >
+                  Главная
+                </NavLink>
+              </li>
 
-          <ul className={styles.list}>
-            <li className={styles.listItem}>
-              <NavLink
-                to='/'
-                className={`${
-                  matchMain?.isExact ? styles.currentlistItem : ''
-                }`}
-              >
-                Главная
-              </NavLink>
-            </li>
+              <li className={styles.listItemSeparator}>|</li>
 
-            <li className={styles.listItemSeparator}>|</li>
+              <li className={styles.listItem}>
+                <NavLink
+                  to='/about'
+                  className={`${
+                    matchAbout?.isExact ? styles.currentlistItem : ''
+                  }`}
+                >
+                  О приставке
+                </NavLink>
+              </li>
 
-            <li className={styles.listItem}>
-              <NavLink
-                to='/about'
-                className={`${
-                  matchAbout?.isExact ? styles.currentlistItem : ''
-                }`}
-              >
-                О приставке
-              </NavLink>
-            </li>
+              <li className={styles.listItemSeparator}>|</li>
 
-            <li className={styles.listItemSeparator}>|</li>
+              <li className={styles.listItem}>
+                <NavLink
+                  to='/instructions'
+                  className={`${
+                    matchInstructions?.isExact ? styles.currentlistItem : ''
+                  }`}
+                >
+                  Инструкции
+                </NavLink>
+              </li>
 
-            <li className={styles.listItem}>
-              <NavLink
-                to='/instructions'
-                className={`${
-                  matchInstructions?.isExact ? styles.currentlistItem : ''
-                }`}
-              >
-                Инструкции
-              </NavLink>
-            </li>
+              <li className={styles.listItemSeparator}>|</li>
 
-            <li className={styles.listItemSeparator}>|</li>
+              <li className={styles.listItem}>
+                <NavLink
+                  to='/contact'
+                  className={`${
+                    matchContact?.isExact ? styles.currentlistItem : ''
+                  }`}
+                >
+                  Свяжитесь с нами
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        )}
+      </>
+    );
+  } else {
+    return (
+      <nav className={styles.nav}>
+        <ul className={styles.list}>
+          <li className={styles.listItem}>
+            <NavLink
+              to='/'
+              className={`${matchMain?.isExact ? styles.currentlistItem : ''}`}
+            >
+              Главная
+            </NavLink>
+          </li>
 
-            <li className={styles.listItem}>
-              <NavLink
-                to='/contact'
-                className={`${
-                  matchContact?.isExact ? styles.currentlistItem : ''
-                }`}
-              >
-                Свяжитесь с нами
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      )}
-    </>
-  );
+          <li className={styles.listItemSeparator}>|</li>
+
+          <li className={styles.listItem}>
+            <NavLink
+              to='/about'
+              className={`${matchAbout?.isExact ? styles.currentlistItem : ''}`}
+            >
+              О приставке
+            </NavLink>
+          </li>
+
+          <li className={styles.listItemSeparator}>|</li>
+
+          <li className={styles.listItem}>
+            <NavLink
+              to='/instructions'
+              className={`${
+                matchInstructions?.isExact ? styles.currentlistItem : ''
+              }`}
+            >
+              Инструкции
+            </NavLink>
+          </li>
+
+          <li className={styles.listItemSeparator}>|</li>
+
+          <li className={styles.listItem}>
+            <NavLink
+              to='/contact'
+              className={`${
+                matchContact?.isExact ? styles.currentlistItem : ''
+              }`}
+            >
+              Свяжитесь с нами
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    );
+  }
 };
 
 export { Menu };
