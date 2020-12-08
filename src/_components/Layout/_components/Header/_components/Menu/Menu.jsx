@@ -10,7 +10,6 @@ import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menu
 const Menu = () => {
   const [isBurgherMenu, setIsBurgherMenu] = useState();
   const [isMenuVisible, setIsMenuVisible] = useState();
-  const [isClicked, setIsClicked] = useState(false);
   const [tl] = useState(gsap.timeline());
 
   let nav = useRef();
@@ -51,7 +50,7 @@ const Menu = () => {
           '-=0.7'
         );
     }
-  }, [isMenuVisible, nav, isClicked]);
+  }, [isMenuVisible, nav]);
 
   useEffect(() => {
     const root = document.getElementById('layout');
