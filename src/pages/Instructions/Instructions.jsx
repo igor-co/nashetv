@@ -1,6 +1,6 @@
 import styles from './Instructions.module.scss';
 
-import { Layout } from '../../_components/Layout/Layout';
+import { Layout } from '_components/Layout';
 
 const Instructions = () => {
   return (

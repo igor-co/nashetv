@@ -2,10 +2,10 @@ import './App.module.scss';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { About } from './pages/About/About';
-import { Contact } from './pages/Contact/Contact';
-import { Instructions } from './pages/Instructions/Instructions';
-import { Main } from './pages/Main/Main';
+import { About } from 'pages/About';
+import { Contact } from 'pages/Contact';
+import { Instructions } from 'pages/Instructions';
+import { Main } from 'pages/Main';
 
 const App = () => {
   return (

@@ -1,6 +1,6 @@
 import styles from './Footer.module.scss';
 
-import { FooterNav } from './_components/FooterNav/FooterNav';
+import { FooterNav } from './_components/FooterNav';
 
 const Footer = () => {
   return (

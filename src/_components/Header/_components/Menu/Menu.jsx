@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
+import { NavLink, useRouteMatch } from 'react-router-dom';
+
 import styles from './Menu.module.scss';
 
-import { NavLink, useRouteMatch } from 'react-router-dom';
 import gsap, { Power3, Elastic } from 'gsap';
 
-import { ReactComponent as CloseIcon } from '../../../../../../_assets/icons/closeIcon.svg';
-import { ReactComponent as MenuIcon } from '../../../../../../_assets/icons/menuIcon.svg';
+import { ReactComponent as CloseIcon } from '_assets/icons/closeIcon.svg';
+import { ReactComponent as MenuIcon } from '_assets/icons/menuIcon.svg';
 
 const Menu = () => {
   const [isBurgherMenu, setIsBurgherMenu] = useState();

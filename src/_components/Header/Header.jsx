@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 
-import { Menu } from './_components/Menu/Menu';
+import { Menu } from './_components/Menu';
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <div className='container'>
         <div className={styles.header}>
           <div className={styles.logo}>Nashe Tv</div>
-          <Menu/>
+          <Menu />
         </div>
       </div>
     </header>
