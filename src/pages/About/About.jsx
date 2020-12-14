@@ -1,6 +1,6 @@
 import styles from './About.module.scss';
 
-import { Layout } from '../../_components/Layout/Layout';
+import { Layout } from '_components/Layout';
 
 const About = () => {
   return (

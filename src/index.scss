@@ -1,4 +1,4 @@
-@import './_assets/colors/colors';
+@import '_assets/colors/_colors.scss';
 
 * {
   // border: 1px solid green !important;
@@ -13,13 +13,13 @@
 @font-face {
   font-family: 'Roboto';
   src: local('Roboto'),
-    url(./_assets/fonts/Roboto/Roboto-Regular.ttf) format('opentype');
+    url(_assets/fonts/Roboto/Roboto-Regular.ttf) format('opentype');
 }
 
 @font-face {
   font-family: 'Oswald';
   src: local('Oswald'),
-    url(./_assets/fonts/Oswald/Oswald-Regular.ttf) format('opentype');
+    url(_assets/fonts/Oswald/Oswald-Regular.ttf) format('opentype');
 }
 html,
 body {

@@ -1,11 +1,11 @@
 import styles from './Main.module.scss';
 
-import { useGetViewportSizes } from '../../_hooks/useGetViewportSizes';
+import { useGetViewportSizes } from '_hooks/useGetViewportSizes';
 
-import { Layout } from '../../_components/Layout/Layout';
-import { ReactComponent as AndroidTv } from '../../_assets/img/androidTv.svg';
-import { ReactComponent as Chromecast } from '../../_assets/img/chromecast.svg';
-import { ReactComponent as GoogleAssistant } from '../../_assets/img/googleAssistant.svg';
+import { Layout } from '_components/Layout/Layout';
+import { ReactComponent as AndroidTv } from '_assets/img/androidTv.svg';
+import { ReactComponent as Chromecast } from '_assets/img/chromecast.svg';
+import { ReactComponent as GoogleAssistant } from '_assets/img/googleAssistant.svg';
 
 const Main = () => {
   return (
