@@ -1,0 +1,83 @@
+@import '_assets/colors/_colors.scss';
+.card {
+  align-self: center;
+  justify-self: center;
+  transform-style: preserve-3d;
+  min-height: 50vh;
+  width: 20rem;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 0rem 2.5rem;
+  .product {
+    min-height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .image {
+      width: 16rem;
+      z-index: 2;
+      transition: all 0.35s ease-out;
+      margin: 1rem;
+    }
+  }
+  .circle {
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    width: 12rem;
+    height: 12rem;
+    background: linear-gradient(
+      to bottom,
+      $colorCorporateAlpha75,
+      $colorDangerAlpha75
+    );
+  }
+  .info {
+    .title {
+      font-size: 3rem;
+    }
+    .companyLabel {
+      height: 1.5rem;
+      transition: all 0.35s ease-out;
+    }
+    .description {
+      font-size: 1rem;
+      padding: 1.2rem 0rem;
+      font-weight: lighter;
+      transition: all 0.35s ease-out;
+    }
+    .subscriptionTime {
+      display: flex;
+      justify-content: space-between;
+      transition: all 0.35s ease-out;
+      .buttonTime {
+        padding: 0.3rem 1.2rem;
+        background: none;
+        border: none;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 30px;
+        color: $colorFont;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .activeBtn {
+        color: $colorBg !important;
+        background: $colorFont !important;
+      }
+    }
+    .purchase {
+      position: relative;
+      width: 100%;
+      margin: 2rem 0;
+      padding: 0.5rem 0;
+      font-size: 1.2rem;
+      font-weight: lighter;
+      border: none;
+      border-radius: 3px;
+      background-color: $colorCorporate;
+      color: $colorButtonFont;
+      cursor: pointer;
+      transition: all 0.35s ease-out;
+    }
+  }
+}

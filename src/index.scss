@@ -28,6 +28,9 @@ body {
   font-size: 16px;
   background-color: $colorBg;
 }
+body {
+  perspective: 1000px;
+}
 
 h1,
 h2,
