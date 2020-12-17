@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import styles from './Main.module.scss';
 
 import { useGetViewportSizes } from '_hooks/useGetViewportSizes';
@@ -8,10 +6,8 @@ import { Layout } from '_components/Layout/Layout';
 import { ReactComponent as AndroidTv } from '_assets/img/androidTv.svg';
 import { ReactComponent as Chromecast } from '_assets/img/chromecast.svg';
 import { ReactComponent as GoogleAssistant } from '_assets/img/googleAssistant.svg';
-import { getChannelsList } from '_utils/getChannelsList';
 
 const Main = () => {
-  const [list] = useState(getChannelsList());
   return (
     <Layout>
       <div className='container'>
@@ -94,10 +90,12 @@ const Main = () => {
             + Огромная <b>база фильмов</b>, сериалов и мультфильмов
           </p>
         </section>
+
         <div className={styles.priceActionRow}>
           <div className={styles.price}>
             Всего: <b>99€</b>
           </div>
+
           <div className={styles.callToAction}>
             <button className={`${styles.bottonAction} btn`}>
               Узнать больше
